@@ -1,44 +1,87 @@
-import React from "react";
+import React, { useState } from "react";
 import "../src/styles/Dashboard.css";
+import "../src/styles/Colors.css";
 
 const Dashboard: React.FC = () => {
+  const [activeItem, setActiveItem] = useState("home");
+
   return (
     <div className="dashboard-container">
       <aside className="sidebar">
         <div className="logo gradient"></div>
         <nav className="sidebar-menu ">
-          <div className="menu-item active">
+          <div
+            className={`sidebar-item ${activeItem === "home" ? "active" : ""}`}
+            onClick={() => setActiveItem("home")}
+          >
             <span className="rectangle1" />
-            Home
+            <p>Home</p>
           </div>
-          <div className="menu-item">
+          <div
+            className={`sidebar-item ${
+              activeItem === "my-files" ? "active" : ""
+            }`}
+            onClick={() => setActiveItem("my-files")}
+          >
             <span className="rectangle1" />
-            My Files
+            <p>My Files</p>
           </div>
-          <div className="menu-item">
+          <div
+            className={`sidebar-item ${
+              activeItem === "recent-files" ? "active" : ""
+            }`}
+            onClick={() => setActiveItem("recent-files")}
+          >
             <span className="rectangle1" />
-            Recent Files
+            <p>Recent Files</p>
           </div>
-          <div className="menu-item">
+          <div
+            className={`sidebar-item ${
+              activeItem === "shared-files" ? "active" : ""
+            }`}
+            onClick={() => setActiveItem("shared-files")}
+          >
             <span className="rectangle1" />
-            Shared Filed
+            <p>Shared Filed</p>
           </div>
-          <div className="menu-item">
+          <div
+            className={`sidebar-item ${
+              activeItem === "files-request" ? "active" : ""
+            }`}
+            onClick={() => setActiveItem("files-request")}
+          >
             <span className="rectangle1" />
-            File Request
+            <p>File Request</p>
           </div>
-          <div className="menu-item">
+          <div
+            className={`sidebar-item ${activeItem === "trash" ? "active" : ""}`}
+            onClick={() => setActiveItem("trash")}
+          >
             <span className="rectangle1" />
-            Trash
+            <p>Trash</p>
           </div>
         </nav>
+        <div className="sidebar-divider"></div>
+
         <div className="create-new">
-          <ul className="custom-list extra">
-            <li>Upload files</li>
-            <li>Upload folder</li>
-            <li>New folder</li>
-            <li>More</li>
-          </ul>
+          <div className="create-new-list">
+            <div>
+              <span className="rectangle2" />
+              <p>Upload files</p>
+            </div>
+            <div>
+              <span className="rectangle2" />
+              <p>Upload folder</p>
+            </div>
+            <div>
+              <span className="rectangle2" />
+              <p>New folder</p>
+            </div>
+            <div>
+              <span className="rectangle2" />
+              <p> More</p>
+            </div>
+          </div>
           <button>
             Create New <span className="plus">+</span>
           </button>
