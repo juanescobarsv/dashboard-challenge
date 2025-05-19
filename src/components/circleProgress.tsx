@@ -4,13 +4,18 @@ interface CircleProgressProps {
   percentage: number;
   used: number;
   total: number;
+  categoriesData: { sizeGB: number; color: string }[];
 }
 
-export const CircleProgress: React.FC<CircleProgressProps> = ({ percentage, used, total }) => {
+export const CircleProgress: React.FC<CircleProgressProps> = ({
+  percentage,
+  used,
+  total,
+  categoriesData,
+}) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const radius = 60;
   const center = 75;
-  const circumference = 2 * Math.PI * radius;
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -20,33 +25,30 @@ export const CircleProgress: React.FC<CircleProgressProps> = ({ percentage, used
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // Background track
+    // Background track (full gray circle)
     ctx.beginPath();
     ctx.arc(center, center, radius, 0, 2 * Math.PI);
     ctx.strokeStyle = '#E0E0E0';
     ctx.lineWidth = 10;
     ctx.stroke();
 
-    // Calculate angles for segments (you'll need to define colors based on usage)
-    const percentageAsDecimal = percentage / 100;
-    const endAngle = percentageAsDecimal * 2 * Math.PI;
-
-    // Example segmentation (adjust colors and logic as needed)
-    const segments = [
-      { percentage: Math.min(0.4, percentageAsDecimal), color: '#64B5F6' }, // Up to 40%
-      { percentage: Math.max(0, Math.min(0.3, percentageAsDecimal - 0.4)), color: '#A5D6A7' }, // 40% to 70%
-      { percentage: Math.max(0, percentageAsDecimal - 0.7), color: '#FFB74D' }, // Above 70%
-    ];
-
     let startAngle = 0;
-    segments.forEach(segment => {
-      const segmentAngle = segment.percentage * 2 * Math.PI;
+    const totalUsedGB = categoriesData.reduce((sum, cat) => sum + cat.sizeGB, 0);
+    const totalGBAsNumber = parseFloat(total.toString()); // Ensure total is a number
+
+    categoriesData.forEach((category) => {
+      const fraction = category.sizeGB / totalGBAsNumber; // Calculate fraction of the total
+      const angle = fraction * 2 * Math.PI;
+      const endAngle = startAngle + angle;
+
       ctx.beginPath();
-      ctx.arc(center, center, radius, startAngle, startAngle + segmentAngle);
-      ctx.strokeStyle = segment.color;
+      ctx.arc(center, center, radius, startAngle, endAngle);
+      ctx.strokeStyle = category.color;
       ctx.lineWidth = 10;
+      ctx.lineCap = 'round'; // Optional: round the ends
       ctx.stroke();
-      startAngle += segmentAngle;
+
+      startAngle = endAngle;
     });
 
     // Center text
@@ -58,11 +60,10 @@ export const CircleProgress: React.FC<CircleProgressProps> = ({ percentage, used
 
     ctx.font = '14px sans-serif';
     ctx.fillStyle = '#777';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
     ctx.fillText('Used', center, center + 10);
+  }, [percentage, total, categoriesData]);
 
-  }, [percentage]);
-
-  return (
-    <canvas ref={canvasRef} width={150} height={150}></canvas>
-  );
+  return <canvas ref={canvasRef} width={150} height={150}></canvas>;
 };

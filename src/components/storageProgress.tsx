@@ -17,10 +17,10 @@ const storageData: StorageData = {
   usedGB: 420.2,
   totalGB: 500,
   categories: [
-    { name: "Documents", fileCount: 720, sizeGB: 200, color: "#F0AD4E" },
-    { name: "Documents", fileCount: 720, sizeGB: 125, color: "#5CACE3" },
-    { name: "Documents", fileCount: 720, sizeGB: 75, color: "#5CB85C" },
-    { name: "Documents", fileCount: 720, sizeGB: 50, color: "#D3D3D3" },
+    { name: "Documents", fileCount: 720, sizeGB: 200, color: "var(--orange)" },
+    { name: "Documents", fileCount: 720, sizeGB: 125, color: "var(--blue)" },
+    { name: "Documents", fileCount: 720, sizeGB: 75, color: "var(--green)" },
+    { name: "Documents", fileCount: 720, sizeGB: 50, color: "var(--gray)" },
   ],
 };
 
@@ -33,7 +33,11 @@ const StorageProgress: React.FC = () => {
           percentage={storageData.usedPercentage}
           used={storageData.usedGB}
           total={storageData.totalGB}
-        />
+          categoriesData={storageData.categories.map((cat) => ({
+            sizeGB: cat.sizeGB,
+            color: cat.color,
+          }))}
+        />{" "}
         <p className="usage-text">
           {storageData.usedGB} GB of {storageData.totalGB} GB used
         </p>
