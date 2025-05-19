@@ -11,7 +11,7 @@ const Sidebar = () => {
             viewBox="0 0 24 24"
             stroke-width="1.5"
             stroke="var(--gray-dark2)"
-            height="25"
+            height="20"
             style={{ marginRight: "13px" }}
           >
             <path
@@ -27,7 +27,7 @@ const Sidebar = () => {
               viewBox="0 0 24 24"
               stroke-width="0"
               fill="var(--gray-dark2)"
-              width="25"
+              width="20"
             >
               <path
                 fill-rule="evenodd"

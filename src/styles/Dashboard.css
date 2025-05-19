@@ -79,6 +79,7 @@ body,
   position: relative;
   transition: color 0.3s ease;
   margin-bottom: 33px;
+  align-items: center;
 }
 
 /* ACTIVE SNIPPET */
@@ -99,8 +100,8 @@ body,
 
 .menu-icon {
   position: relative;
-  width: 15px;
-  height: 15px;
+  width: 20px;
+  height: 20px;
   background: transparent;
   margin-right: 19px;
 }
@@ -127,7 +128,7 @@ body,
 .create-new {
   justify-items: center;
   align-self: center;
-  margin-top: 304px;
+  margin-top: 309px;
   margin-bottom: 27px;
   position: relative;
 }
@@ -506,11 +507,11 @@ h2 {
 }
 
 .pie-chart-image {
-  width: 139px;
+  width: 200px;
 }
 
 .usage-text {
-  margin-top: 20px;
+  margin-top: 10px;
   color: var(--gray3);
   font-size: 8px;
 }

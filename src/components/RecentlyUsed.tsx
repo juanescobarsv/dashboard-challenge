@@ -24,7 +24,7 @@ const RecentlyUsed: React.FC<RecentlyUsedProps> = ({ recentlyUsedData }) => {
             viewBox="0 0 24 24"
             stroke-width="1.5"
             stroke="0"
-            width="25"
+            width="20"
             style={{ marginRight: "10px" }}
           >
             <path
@@ -39,7 +39,7 @@ const RecentlyUsed: React.FC<RecentlyUsedProps> = ({ recentlyUsedData }) => {
             viewBox="0 0 24 24"
             stroke-width="1.5"
             stroke="var(--gray-dark)"
-            width="25"
+            width="20"
           >
             <path
               stroke-linecap="round"
