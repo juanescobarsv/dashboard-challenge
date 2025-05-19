@@ -82,7 +82,6 @@ const Menu = () => {
           <p>Trash</p>
         </div>
       </nav>
-      <div className="sidebar-divider"></div>
 
       <div className="create-new" ref={createNewContainerRef}>
         {isListVisible && (

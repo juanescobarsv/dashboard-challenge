@@ -1,35 +1,46 @@
+import CircleIcon from "./circle";
+import StorageProgress from "./storageProgress";
+
 const Sidebar = () => {
   return (
     <aside className="right-sidebar">
       <div className="user">
-        <div>Name</div>
-      </div>
-      <div className="storage">
-        <h2>Storage</h2>
-        <div className="circle">85%</div>
-        <p>420.2 GB of 500 GB used</p>
-        <div className="storage-breakdown custom-list">
-          <div>
-            <span className="dot orange"></span> Documents - 200 GB
-          </div>
-          <div>
-            <span className="dot blue"></span> Documents - 125 GB
-          </div>
-          <div>
-            <span className="dot green"></span> Documents - 75 GB
-          </div>
-          <div>
-            <span className="dot gray"></span> Documents - 50 GB
-          </div>
+        <div className="inline-squares">
+          <span style={{ marginRight: "13px", display: "inline-block" }}>
+            <svg
+              width="15"
+              height="15"
+              viewBox="0 0 100 100"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect width="100" height="100" fill="var(--gray-light)" />
+            </svg>
+          </span>
+          <svg
+            width="15"
+            height="15"
+            viewBox="0 0 100 100"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect width="100" height="100" fill="var(--gray-light)" />
+          </svg>
+        </div>
+        <div className="name-box">
+          <p className="name">Name</p>
+          <CircleIcon
+            fillColor="var(--gray-light)"
+            strokeColor="none"
+            radius={16}
+          />
         </div>
       </div>
-      <div className="upgrade-box">
-        <div className="upgrade-box gradient"></div>
-        <p>
-          Buy more space now!
-          <br />
-          <strong>Upgrade to cloud premium</strong>
-        </p>
+
+      <StorageProgress />
+
+      <div className="ad-box">
+        <div className="logo-box gradient" />
+        <p className="ad-main">Buy more space now!</p>
+        <p className="ad-side">Upgrade to cloud premium</p>
         <button>Upgrade Account!</button>
       </div>
     </aside>
