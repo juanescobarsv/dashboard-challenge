@@ -1,7 +1,23 @@
 import React from "react";
 import CircleIcon from "./circle";
 
-const SharedFiles = () => {
+interface SharedFileItem {
+  title: string;
+  date: string;
+  memberColor: SharedFileMemberColor[];
+}
+
+export type SharedFileMemberColor =
+  | "var(--green)"
+  | "var(--red)"
+  | "var(--orange)"
+  | string;
+
+interface SharedFilesProps {
+  sharedFilesData: SharedFileItem[];
+}
+
+const SharedFiles: React.FC<SharedFilesProps> = ({ sharedFilesData }) => {
   return (
     <section className="shared-files">
       <div className="inline-header">
@@ -9,43 +25,20 @@ const SharedFiles = () => {
         <span className="view-all">View all</span>
       </div>
       <div className="cards2">
-        <div className="card2">
-          <div className="inline-items2">
-            <div className="card-icon2"></div>
-            <div className="circles-area long">
-              <CircleIcon strokeColor="var(--green)" radius={9} />
-              <CircleIcon strokeColor="var(--red)" radius={9} />
+        {sharedFilesData.map((item, index) => (
+          <div className="card2" key={index}>
+            <div className="inline-items2">
+              <div className="card-icon2"></div>
+              <div className="circles-area long">
+                {item.memberColor.map((color, colorIndex) => (
+                  <CircleIcon key={colorIndex} strokeColor={color} radius={9} />
+                ))}
+              </div>
             </div>
+            <div className="card-title">{item.title}</div>
+            <div className="card-date2">{item.date}</div>
           </div>
-          <div className="card-title">Landing Page</div>
-          <div className="card-date2">Created: 20.02.2020</div>
-        </div>
-
-        <div className="card2">
-          <div className="inline-items2">
-            <div className="card-icon2"></div>
-            <div className="circles-area long">
-              <CircleIcon strokeColor="var(--green)" radius={9} />
-              <CircleIcon strokeColor="var(--red)" radius={9} />
-              <CircleIcon strokeColor="var(--orange)" radius={9} />
-            </div>
-          </div>
-          <div className="card-title">Illustration Pack</div>
-          <div className="card-date2">Created: 20.02.2020</div>
-        </div>
-
-        <div className="card2">
-          <div className="inline-items2">
-            <div className="card-icon2"></div>
-            <div className="circles-area long">
-              <CircleIcon strokeColor="var(--green)" radius={9} />
-              <CircleIcon strokeColor="var(--red)" radius={9} />
-              <CircleIcon strokeColor="var(--orange)" radius={9} />
-            </div>
-          </div>
-          <div className="card-title">CV Design</div>
-          <div className="card-date2">Created: 20.02.2020</div>
-        </div>
+        ))}
       </div>
     </section>
   );

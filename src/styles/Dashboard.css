@@ -6,27 +6,28 @@
   font-size: 10px;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 html,
-body {
-  width: 100vw;
+body,
+#root {
   height: 100vh;
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
-  font-size: 10px;
+  width: auto;
+  margin: 0;
+  padding: 0;
 }
 
 .dashboard-container {
   display: grid;
   grid-template-columns: 172px 22px 1fr 22px 172px;
   height: 100vh;
-  width: 100vw;
-
+  width: auto;
   gap: 0;
   background-color: var(--white);
-}
-
-.gradient {
-  background: linear-gradient(to right, var(--orange), var(--red), var(--blue));
 }
 
 /* MENU */
@@ -34,12 +35,14 @@ body {
   max-width: 172px;
   background-color: var(--gray-dark2);
   color: var(--white);
-
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: auto;
-  max-width: 100%;
+  min-height: 100vh;
+}
+
+.gradient {
+  background: linear-gradient(to right, var(--orange), var(--red), var(--blue));
 }
 
 .logo {
@@ -59,7 +62,7 @@ body {
   padding-top: 10px;
   display: flex;
   flex-direction: row;
-  color: #858a9d;
+  color: var(--gray-dark);
   cursor: pointer;
   position: relative;
   transition: color 0.3s ease;
@@ -109,7 +112,7 @@ body {
 .create-new {
   justify-items: center;
   margin-bottom: 27px;
-  /* margin-top: 173px; */
+  align-self: center;
 }
 
 .create-new-list {
@@ -121,21 +124,36 @@ body {
   border-radius: 9px;
 }
 
+.create-new-list.hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
 .rectangle2 {
   position: absolute;
   margin-left: 14px;
   width: 15px;
   height: 15px;
-  border: 1px solid var(--white);
+  border: 1px solid var(--gray-dark);
   background: transparent;
 }
 
 .create-new-list p {
+  cursor: pointer;
   margin-left: 36px;
   margin-bottom: 10px;
   align-items: center;
   line-height: 15px;
-  color: #bec0c8;
+  color: var(--gray-dark);
+}
+
+.create-new-list div:hover .rectangle2 {
+  border-color: var(--white);
+}
+
+.create-new-list div:hover p {
+  color: var(--white);
 }
 
 .create-new button {
@@ -191,7 +209,9 @@ body {
   background-size: 15px 15px;
 }
 
-/* MISC */
+.recently-used {
+  margin-bottom: 38px;
+}
 
 h2 {
   font-size: 20px;
@@ -203,7 +223,6 @@ h2 {
   display: flex;
   gap: 14px;
   margin-top: 23px;
-  margin-bottom: 38px;
   margin-right: 42px;
 }
 
@@ -227,7 +246,7 @@ h2 {
   margin-bottom: 34px;
   position: relative;
   background-color: var(--orange-light2);
-  /* z-index: 0; */
+  /* z-index: 0; NOT WORKING PROPERLY*/
 }
 
 .card-icon::before {
@@ -240,7 +259,7 @@ h2 {
   margin-top: -10px;
   margin-bottom: -10px;
   background-color: var(--orange);
-  /* z-index: -1; */
+  /* z-index: -1; NOT WORKING PROPERLY*/
 }
 
 .card-title {
@@ -330,6 +349,10 @@ h2 {
   margin-top: 10px;
   margin-left: auto;
   margin-right: 13px;
+}
+
+.recent-files {
+  margin-bottom: 38px;
 }
 
 .inline-header {

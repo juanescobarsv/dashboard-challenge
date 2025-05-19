@@ -1,5 +1,3 @@
-import React from "react";
-
 interface CircleIconProps {
   radius?: number;
   strokeColor?: string;

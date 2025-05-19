@@ -1,6 +1,4 @@
-import React from "react";
-
-type Files = {
+type RecentUploads = {
   id: number;
   name: string;
   members: string;
@@ -8,11 +6,11 @@ type Files = {
   color: string;
 };
 
-interface RecentFilesProps {
-  files: Files[];
+interface RecentUploadsProps {
+  recentUploadsData: RecentUploads[];
 }
 
-const RecentFiles: React.FC<RecentFilesProps> = ({ files }) => {
+const RecentFiles: React.FC<RecentUploadsProps> = ({ recentUploadsData }) => {
   return (
     <section className="recent-files">
       <div className="inline-header">
@@ -28,7 +26,7 @@ const RecentFiles: React.FC<RecentFilesProps> = ({ files }) => {
           <span>{""}</span>
         </div>
 
-        {files.map((file) => (
+        {recentUploadsData.map((file) => (
           <div className="files-row" key={file.id}>
             <div className="files-name">
               <span
