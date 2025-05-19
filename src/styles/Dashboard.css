@@ -50,7 +50,7 @@ body,
 .logo {
   height: 21px;
   width: 74px;
-  border-radius: 8px;
+  border-radius: 5px;
   margin-top: 36px;
   margin-left: 32px;
 }
@@ -89,6 +89,14 @@ body,
 }
 
 .sidebar-item.active .rectangle1 {
+  border-color: var(--white);
+}
+
+.sidebar-item:hover {
+  color: var(--white);
+}
+
+.sidebar-item:hover .rectangle1 {
   border-color: var(--white);
 }
 
@@ -434,16 +442,10 @@ h2 {
   background-color: var(--blue-light);
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-around;
   min-height: 100vh;
   width: 100%;
 }
-
-/* .inline-squares {
-  display: flex;
-  justify-items: center;
-  align-items: center;
-} */
 
 .user {
   min-height: 79px;

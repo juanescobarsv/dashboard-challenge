@@ -9,7 +9,7 @@ interface CircleProgressProps {
 
 export const CircleProgress: React.FC<CircleProgressProps> = ({
   percentage,
-  used,
+  // used,
   total,
   categoriesData,
 }) => {
@@ -33,7 +33,7 @@ export const CircleProgress: React.FC<CircleProgressProps> = ({
     ctx.stroke();
 
     let startAngle = 0;
-    const totalUsedGB = categoriesData.reduce((sum, cat) => sum + cat.sizeGB, 0);
+    // const totalUsedGB = categoriesData.reduce((sum, cat) => sum + cat.sizeGB, 0);
     const totalGBAsNumber = parseFloat(total.toString()); // Ensure total is a number
 
     categoriesData.forEach((category) => {
