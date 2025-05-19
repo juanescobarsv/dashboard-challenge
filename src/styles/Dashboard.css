@@ -29,7 +29,7 @@ body {
   background: linear-gradient(to right, var(--orange), var(--red), var(--blue));
 }
 
-/* LEFT SIDEBAR */
+/* MENU */
 .sidebar {
   max-width: 172px;
   background-color: var(--gray-dark2);
@@ -52,8 +52,6 @@ body {
 
 .sidebar-menu {
   margin-left: 32px;
-  /* margin-top: 66px;
-  margin-bottom: 29px; */
 }
 
 .sidebar-item {
@@ -293,6 +291,47 @@ h2 {
   margin-bottom: 5px;
 }
 
+.inline-items {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+.inline-items2 {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+.circles-area {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.circles-area > * {
+  margin-right: -8px;
+}
+
+.circles-area > *:last-child {
+  margin-right: 0;
+}
+
+.circles-area.short {
+  padding-left: 20px;
+}
+
+.circles-area.long {
+  padding-left: 50px;
+}
+
+.vertical-ellipsis {
+  align-self: flex-start;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: 13px;
+}
+
 .inline-header {
   display: flex;
   justify-content: space-between;
@@ -322,8 +361,6 @@ h2 {
   border: 1px solid var(--gray2);
   background: transparent;
 }
-
-/* TO DO  */
 
 .files-table {
   font-size: 12px;
