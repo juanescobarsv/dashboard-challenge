@@ -8,18 +8,20 @@
 
 html,
 body {
+  width: 100vw;
+  height: 100vh;
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-size: 10px;
 }
 
 .dashboard-container {
+  display: grid;
+  grid-template-columns: 172px 22px 1fr 22px 172px;
+  height: 100vh;
   width: 100vw;
-  height: auto;
-  aspect-ratio: 768 / 1027;
-  max-height: 100vh;
-  overflow: hidden;
-  display: flex;
+
+  gap: 0;
   background-color: var(--white);
 }
 
@@ -29,14 +31,15 @@ body {
 
 /* LEFT */
 .sidebar {
-  width: 172px;
+  max-width: 172px;
   background-color: var(--gray-dark2);
   color: var(--white);
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 100vh;
+  min-height: auto;
+  max-width: 100%;
 }
 
 .logo {
@@ -161,26 +164,33 @@ body {
 
 /* CENTER */
 .main-content {
-  width: 562px;
   flex: 1;
   padding-left: 16px;
+  padding-right: 19px;
   background-color: var(--blue-light);
-  /* overflow-y: auto; */
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 100vh;
+  min-height: auto;
+  max-width: 100%;
 }
 
 #search {
-  width: 527px;
+  width: 1fr;
   height: 29px;
   margin-top: 25px;
-  margin-left: 16px;
   margin-bottom: 25px;
+  padding-left: 35px;
   border-radius: 5px;
   border-color: transparent;
+  color: var(--gray);
+  box-sizing: border-box;
+
+  background-image: url("data:image/svg+xml,%3Csvg width='15' height='15' viewBox='0 0 15 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.5' y='0.5' width='14' height='14' stroke='%23858a9d' fill='transparent'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: 12px center;
+  background-size: 15px 15px;
 }
 
 /* RIGHT */
@@ -191,15 +201,23 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 100vh;
+  height: auto;
+  max-width: 100%;
 }
 
 /* MISC */
 
+h2 {
+  font-size: 20px;
+  margin: 0;
+  color: var(--gray-dark2);
+}
+
 .cards {
   display: flex;
-  gap: 1rem;
-  margin-bottom: 1rem;
+  gap: 14px;
+  margin-top: 23px;
+  margin-bottom: 38px;
 }
 
 .card {
@@ -212,21 +230,31 @@ body {
 
 .card-icon {
   width: 30px;
-  height: 30px;
-  border-radius: 4px;
-  margin-bottom: 0.5rem;
+  height: 26px;
+  margin-bottom: 34px;
+  position: relative;
+  z-index: 9999;
+  background-color: var(--orange);
+  transform: translateZ(0);
 }
 
-.card-icon.orange {
-  background-color: var(--orange);
+.card-icon.double::before {
+  content: "";
+  background-color: var(--orange-light2);
+  position: absolute;
+  width: 30px;
+  height: 26px;
+  top: 5px;
+  left: -5px;
+  z-index: -1;
 }
 
 .card-title {
-  font-weight: bold;
+  font-size: 12px;
 }
 
 .card-date {
-  font-size: 0.8rem;
+  font-size: 8px;
   color: var(--gray3);
 }
 

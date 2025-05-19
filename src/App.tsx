@@ -88,23 +88,25 @@ const Dashboard: React.FC = () => {
         </div>
       </aside>
 
+      <div className="white gap" />
+
       <main className="main-content">
         <input type="text" name="search" id="search" placeholder="Search" />
         <section className="recently-used">
           <h2>Recently Used</h2>
           <div className="cards">
             <div className="card">
-              <div className="card-icon orange"></div>
+              <div className="card-icon double"></div>
               <div className="card-title">App Project</div>
               <div className="card-date">Created: 20.02.2020</div>
             </div>
             <div className="card">
-              <div className="card-icon orange"></div>
+              <div className="card-icon double"></div>
               <div className="card-title">Project: fitbit</div>
               <div className="card-date">Created: 28.02.2020</div>
             </div>
             <div className="card">
-              <div className="card-icon orange"></div>
+              <div className="card-icon double"></div>
               <div className="card-title">Client Documents</div>
               <div className="card-date">Created: 4.03.2020</div>
             </div>
@@ -176,12 +178,14 @@ const Dashboard: React.FC = () => {
         </section>
       </main>
 
+      <div className="white gap" />
+
       <aside className="right-sidebar">
         <div className="user">
           <div>Name</div>
         </div>
         <div className="storage">
-          <h3>Storage</h3>
+          <h2>Storage</h2>
           <div className="circle">85%</div>
           <p>420.2 GB of 500 GB used</p>
           <div className="storage-breakdown custom-list">
