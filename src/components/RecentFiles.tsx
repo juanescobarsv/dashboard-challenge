@@ -21,8 +21,8 @@ const RecentFiles: React.FC<RecentUploadsProps> = ({ recentUploadsData }) => {
       <div className="files-table">
         <div className="files-header">
           <span>Name</span>
-          <span>Members</span>
-          <span>Last Modified</span>
+          <span className="row-members">Members</span>
+          <span className="row-modified">Last Modified</span>
           <span>{""}</span>
         </div>
 
@@ -35,8 +35,8 @@ const RecentFiles: React.FC<RecentUploadsProps> = ({ recentUploadsData }) => {
               />
               {file.name}
             </div>
-            <span>{file.members}</span>
-            <span>{file.modified}</span>
+            <span className="row-members">{file.members}</span>
+            <span className="row-modified">{file.modified}</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"

@@ -15,7 +15,7 @@
 html,
 body,
 #root {
-  height: 100vh;
+  height: 100%;
   width: auto;
   margin: 0;
   padding: 0;
@@ -24,10 +24,11 @@ body,
 .dashboard-container {
   display: grid;
   grid-template-columns: 194px 1fr 22px 252px;
-  height: 100vh;
-  width: auto;
+  min-height: 100vh;
+  width: 100%;
   gap: 0;
   background-color: var(--white);
+  flex-grow: 1;
 }
 
 /* MENU */
@@ -39,8 +40,9 @@ body,
   flex-direction: column;
   justify-content: space-between;
   position: fixed;
-  min-height: 100vh;
+  height: 100%;
   z-index: 1;
+  overflow-y: auto;
 }
 
 .gradient {
@@ -53,6 +55,7 @@ body,
   border-radius: 5px;
   margin-top: 36px;
   margin-left: 32px;
+  margin-bottom: 20px;
 }
 
 .sidebar-menu {
@@ -118,8 +121,10 @@ body,
 
 .create-new {
   justify-items: center;
-  margin-bottom: 27px;
   align-self: center;
+  margin-top: 150px;
+  margin-bottom: 27px;
+  position: relative;
 }
 
 .create-new-list {
@@ -129,6 +134,12 @@ body,
   height: 118px;
   background-color: var(--gray-dark3);
   border-radius: 9px;
+
+  position: absolute; /* Change this line */
+  /* top: calc(-200%); Keep this to align top of list with bottom of button */
+  left: 0; /* Keep this for left alignment */
+  z-index: 2; /* Keep this for stacking order */
+  transform: translateY(-116px);
 }
 
 .create-new-list.hidden {
@@ -195,8 +206,9 @@ body,
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: auto;
+  min-height: 100%;
   max-width: 100%;
+  flex-grow: 1;
 }
 
 #search {
@@ -401,14 +413,15 @@ h2 {
 
 .files-header {
   display: grid;
-  grid-template-columns: 1.45fr 0.5fr 0.5fr 0.1fr;
-  margin-top: 14px;
+  align-items: center;
+  grid-template-columns: 1fr 0.5fr 0.5fr 35px;
+  margin-top: 18px;
   margin-bottom: 18px;
 }
 
 .files-row {
   display: grid;
-  grid-template-columns: 1.45fr 0.5fr 0.5fr 0.1fr;
+  grid-template-columns: 1fr 0.5fr 0.5fr 25px;
   align-items: center;
   background-color: var(--white);
   padding: 14px;
@@ -443,7 +456,7 @@ h2 {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 100vh;
+  min-height: 100%;
   width: 100%;
 }
 
@@ -573,4 +586,50 @@ h2 {
   cursor: pointer;
   margin-bottom: 16px;
   margin-top: 11px;
+}
+
+@media (max-width: 768px) {
+  .cards {
+    flex-direction: column;
+    margin-right: 0;
+  }
+
+  .cards2 {
+    flex-direction: column;
+    margin-right: 0;
+  }
+
+  .card {
+    width: auto;
+    margin-bottom: 14px;
+    margin-right: 0;
+  }
+
+  .card2 {
+    width: auto;
+    margin-bottom: 14px;
+    margin-right: 0;
+  }
+
+  .row-members,
+  .row-modified {
+    display: none;
+  }
+
+  .files-header,
+  .files-row {
+    grid-template-columns: 1fr 35px;
+  }
+}
+
+@media (max-width: 600px) {
+  .cards {
+    margin-right: 0;
+    min-width: auto;
+  }
+
+  .cards2 {
+    margin-right: 0;
+    min-width: auto;
+  }
 }

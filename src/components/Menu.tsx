@@ -29,8 +29,9 @@ const Menu = () => {
 
   return (
     <aside className="sidebar">
-      <div className="logo gradient"></div>
       <nav className="sidebar-menu ">
+        <div className="logo gradient"></div>
+
         <div
           className={`sidebar-item ${activeItem === "home" ? "active" : ""}`}
           onClick={() => setActiveItem("home")}
