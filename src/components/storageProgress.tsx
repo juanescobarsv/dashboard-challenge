@@ -1,4 +1,4 @@
-import { CircleProgress } from "./circleProgress";
+import piechart from "../assets/pie-chart.png";
 
 interface StorageData {
   usedPercentage: number;
@@ -29,15 +29,7 @@ const StorageProgress: React.FC = () => {
     <div className="storage-container">
       <h2>Storage</h2>
       <div className="circular-progress-container">
-        <CircleProgress
-          percentage={storageData.usedPercentage}
-          used={storageData.usedGB}
-          total={storageData.totalGB}
-          categoriesData={storageData.categories.map((cat) => ({
-            sizeGB: cat.sizeGB,
-            color: cat.color,
-          }))}
-        />{" "}
+        <img src={piechart} alt="Pie Chart" className="pie-chart-image" />
         <p className="usage-text">
           {storageData.usedGB} GB of {storageData.totalGB} GB used
         </p>

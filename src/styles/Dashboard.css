@@ -442,7 +442,7 @@ h2 {
   background-color: var(--blue-light);
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   min-height: 100vh;
   width: 100%;
 }
@@ -478,11 +478,15 @@ h2 {
 }
 
 .circular-progress-container {
-  /* position: relative; */
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-bottom: 20px;
+}
+
+.pie-chart-image {
+  width: 139px;
 }
 
 .usage-text {
@@ -528,7 +532,7 @@ h2 {
   padding: 6px 13px;
 }
 
-.ad-box {
+.space-box {
   margin-top: 34px;
   margin-left: 33px;
   margin-right: 25px;
@@ -549,17 +553,17 @@ h2 {
   height: 73px;
 }
 
-.ad-main {
+.space-main {
   font-size: 12px;
   color: var(--gray-dark2);
 }
 
-.ad-side {
+.space-side {
   font-size: 8px;
   color: var(--gray3);
 }
 
-.ad-box button {
+.space-box button {
   background: var(--orange);
   color: var(--white);
   width: 116px;

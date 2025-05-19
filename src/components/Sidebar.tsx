@@ -37,10 +37,10 @@ const Sidebar = () => {
 
       <StorageProgress />
 
-      <div className="ad-box">
+      <div className="space-box">
         <div className="logo-box gradient" />
-        <p className="ad-main">Buy more space now!</p>
-        <p className="ad-side">Upgrade to cloud premium</p>
+        <p className="space-main">Buy more space now!</p>
+        <p className="space-side">Upgrade to cloud premium</p>
         <button>Upgrade Account!</button>
       </div>
     </aside>

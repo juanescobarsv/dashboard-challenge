@@ -80,7 +80,7 @@ const Dashboard: React.FC = () => {
     {
       title: "CV Design",
       date: "Created: 20.02.2020",
-      memberColor: ["var(--green)", "var(--red)", "var(--orange)"],
+      memberColor: ["var(--green)", "var(--orange)"],
     },
   ];
 
