@@ -23,7 +23,7 @@ body,
 
 .dashboard-container {
   display: grid;
-  grid-template-columns: 172px 22px 1fr 22px 172px;
+  grid-template-columns: 194px 1fr 22px 172px;
   height: 100vh;
   width: auto;
   gap: 0;
@@ -32,12 +32,13 @@ body,
 
 /* MENU */
 .sidebar {
-  max-width: 172px;
+  min-width: 172px;
   background-color: var(--gray-dark2);
   color: var(--white);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  position: fixed;
   min-height: 100vh;
 }
 
@@ -429,13 +430,14 @@ h2 {
 
 /* RIGHT SIDEBAR */
 .right-sidebar {
-  width: 172px;
+  max-width: 172px;
   background-color: var(--blue-light);
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: auto;
+  height: 100vh;
+  overflow-y: auto;
   max-width: 100%;
 }
 
