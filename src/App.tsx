@@ -5,6 +5,45 @@ import "../src/styles/Colors.css";
 const Dashboard: React.FC = () => {
   const [activeItem, setActiveItem] = useState("home");
 
+  type Files = {
+    id: number;
+    name: string;
+    members: string;
+    modified: string;
+    color: string;
+  };
+
+  const files: Files[] = [
+    {
+      id: 1,
+      name: "Travel Landing Page",
+      members: "5 members",
+      modified: "Mar 8, 2020",
+      color: "var(--orange)",
+    },
+    {
+      id: 2,
+      name: "True Photos",
+      members: "12 members",
+      modified: "Mar 8, 2020",
+      color: "var(--green)",
+    },
+    {
+      id: 3,
+      name: "Dashboard Structure",
+      members: "10 members",
+      modified: "Mar 9, 2020",
+      color: "var(--red)",
+    },
+    {
+      id: 4,
+      name: "Character Illustration",
+      members: "3 members",
+      modified: "Mar 10, 2020",
+      color: "var(--orange)",
+    },
+  ];
+
   return (
     <div className="dashboard-container">
       <aside className="sidebar">
@@ -92,21 +131,28 @@ const Dashboard: React.FC = () => {
 
       <main className="main-content">
         <input type="text" name="search" id="search" placeholder="Search" />
+
         <section className="recently-used">
-          <h2>Recently Used</h2>
+          <div className="inline-header">
+            <h2>Recently Used</h2>
+            <div>
+              <span className="rectangle-top1" />
+              <span className="rectangle-top2" />
+            </div>
+          </div>
           <div className="cards">
             <div className="card">
-              <div className="card-icon double"></div>
+              <div className="card-icon"></div>
               <div className="card-title">App Project</div>
               <div className="card-date">Created: 20.02.2020</div>
             </div>
             <div className="card">
-              <div className="card-icon double"></div>
+              <div className="card-icon"></div>
               <div className="card-title">Project: fitbit</div>
               <div className="card-date">Created: 28.02.2020</div>
             </div>
             <div className="card">
-              <div className="card-icon double"></div>
+              <div className="card-icon"></div>
               <div className="card-title">Client Documents</div>
               <div className="card-date">Created: 4.03.2020</div>
             </div>
@@ -114,65 +160,56 @@ const Dashboard: React.FC = () => {
         </section>
 
         <section className="recent-files">
-          <h2>Recent Files</h2>
-          <table>
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Members</th>
-                <th>Last Modified</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <span className="dot orange"></span>Travel Landing Page
-                </td>
-                <td>5 members</td>
-                <td>Mar 8, 2020</td>
-              </tr>
-              <tr>
-                <td>
-                  <span className="dot green"></span>True Photos
-                </td>
-                <td>12 members</td>
-                <td>Mar 8, 2020</td>
-              </tr>
-              <tr>
-                <td>
-                  <span className="dot red"></span>Dashboard Structure
-                </td>
-                <td>10 members</td>
-                <td>Mar 9, 2020</td>
-              </tr>
-              <tr>
-                <td>
-                  <span className="dot orange"></span>Character Illustration
-                </td>
-                <td>3 members</td>
-                <td>Mar 10, 2020</td>
-              </tr>
-            </tbody>
-          </table>
+          <div className="inline-header">
+            <h2>Recent Files</h2>
+            <span className="view-all">View all</span>
+          </div>
+
+          <div className="files-table">
+            <div className="files-header">
+              <span>Name</span>
+              <span>Members</span>
+              <span>Last Modified</span>
+              <span>{""}</span>
+            </div>
+
+            {files.map((file) => (
+              <div className="files-row" key={file.id}>
+                <div className="files-name">
+                  <span
+                    className="files-icon"
+                    style={{ backgroundColor: file.color }}
+                  />
+                  {file.name}
+                </div>
+                <span>{file.members}</span>
+                <span>{file.modified}</span>
+                <span className="see-more">...</span>
+              </div>
+            ))}
+          </div>
         </section>
 
         <section className="shared-files">
-          <h2>Share with me</h2>
-          <div className="cards">
-            <div className="card">
-              <div className="card-icon orange"></div>
+          <div className="inline-header">
+            <h2>Share with me</h2>
+            <span className="view-all">View all</span>
+          </div>
+          <div className="cards2">
+            <div className="card2">
+              <div className="card-icon2"></div>
               <div className="card-title">Landing Page</div>
-              <div className="card-date">Created: 20.02.2020</div>
+              <div className="card-date2">Created: 20.02.2020</div>
             </div>
-            <div className="card">
-              <div className="card-icon orange"></div>
+            <div className="card2">
+              <div className="card-icon2"></div>
               <div className="card-title">Illustration Pack</div>
-              <div className="card-date">Created: 20.02.2020</div>
+              <div className="card-date2">Created: 20.02.2020</div>
             </div>
-            <div className="card">
-              <div className="card-icon orange"></div>
+            <div className="card2">
+              <div className="card-icon2"></div>
               <div className="card-title">CV Design</div>
-              <div className="card-date">Created: 20.02.2020</div>
+              <div className="card-date2">Created: 20.02.2020</div>
             </div>
           </div>
         </section>
