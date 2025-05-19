@@ -15,20 +15,27 @@
 html,
 body,
 #root {
-  height: 100%;
+  height: 100vh;
   width: auto;
   margin: 0;
   padding: 0;
 }
 
 .dashboard-container {
-  display: grid;
-  grid-template-columns: 194px 1fr 22px 252px;
-  min-height: 100vh;
+  display: flex;
+  grid-template-columns: auto 1fr auto;
+  min-height: 100%;
   width: 100%;
-  gap: 0;
   background-color: var(--white);
-  flex-grow: 1;
+  overflow-y: hidden;
+}
+
+.dashboard-container > * {
+  margin-right: 20px;
+}
+
+.dashboard-container > *:last-child {
+  margin-right: 0;
 }
 
 /* MENU */
@@ -39,7 +46,7 @@ body,
   display: flex;
   flex-direction: column;
   position: fixed;
-  height: 100%;
+  height: 100vh;
   z-index: 1;
   overflow-y: auto;
 }
@@ -120,7 +127,7 @@ body,
 .create-new {
   justify-items: center;
   align-self: center;
-  margin-top: 150px;
+  margin-top: 304px;
   margin-bottom: 27px;
   position: relative;
 }
@@ -198,13 +205,12 @@ body,
   flex: 1;
   padding-left: 16px;
   padding-right: 19px;
+  margin-left: 192px;
   background-color: var(--blue-light);
-
   display: flex;
   flex-direction: column;
   min-height: 100%;
   max-width: 100%;
-  flex-grow: 1;
 }
 
 #search {
@@ -451,7 +457,7 @@ h2 {
   display: flex;
   flex-direction: column;
   min-height: 100%;
-  width: 100%;
+  width: 253px;
 }
 
 .user {
@@ -590,10 +596,6 @@ h2 {
 }
 
 @media (max-width: 768px) {
-  .dashboard-container {
-    grid-template-columns: 194px 1fr 10px 100px;
-  }
-
   .cards {
     flex-direction: column;
     margin-right: 0;
@@ -627,8 +629,8 @@ h2 {
   }
 
   .right-sidebar {
-    max-width: 100px;
-    min-width: 100px;
+    max-width: 50px;
+    min-width: 50px;
   }
 
   .right-sidebar > div {
@@ -647,35 +649,59 @@ h2 {
     align-items: center;
     min-height: 150px;
   }
+
+  .right-sidebar > .user p {
+    display: none;
+  }
+
+  .settings {
+    display: none;
+  }
 }
 
 @media (max-width: 576px) {
-  .sidebar {
-    min-width: 40px;
-    position: relative;
+  .main-content {
+    margin-left: 100px;
+    overflow-x: auto;
+    overflow-y: auto;
   }
 
   .dashboard-container {
-    grid-template-columns: 100px 10px 1fr 10px 100px;
+    grid-template-columns: auto 1fr auto;
+  }
+
+  .sidebar {
+    min-width: 80px;
+    /* position: relative; */
   }
 
   .menu-icon {
     display: none;
   }
+
   .logo {
     margin-top: 25px;
     margin-left: 12px;
     margin-bottom: 20px;
+    width: 55px;
+  }
+
+  .sidebar-menu {
+    font-size: 8px;
   }
 
   .sidebar-item {
     margin-left: 12px;
-    margin-bottom: 23px;
+    margin-bottom: 13px;
+  }
+
+  .sidebar-item p {
+    font-size: 8px;
   }
 
   .create-new button {
-    width: 66px;
-    height: 30px;
+    width: 60px;
+    height: 22px;
     margin-top: 20px;
   }
 

@@ -87,14 +87,12 @@ const Dashboard: React.FC = () => {
   return (
     <div className="dashboard-container">
       <Menu />
-      <div className="white gap" />
       <main className="main-content">
         <input type="text" name="search" id="search" placeholder="Search" />
         <RecentlyUsed recentlyUsedData={recentlyUsedData} />
         <RecentFiles recentUploadsData={recentFilesData} />
         <SharedFiles sharedFilesData={sharedFilesData} />
       </main>
-      <div className="white gap" />
       <Sidebar />
     </div>
   );
