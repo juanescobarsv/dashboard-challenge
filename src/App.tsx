@@ -1,171 +1,100 @@
-import React from "react";
+import Menu from "./components/Menu";
+import RecentlyUsed from "./components/RecentlyUsed";
+import RecentFiles from "./components/RecentFiles";
+import SharedFiles from "./components/SharedFiles";
+import type { SharedFileMemberColor } from "./components/SharedFiles"; // Import the type
+import Sidebar from "./components/Sidebar";
+import "../src/styles/Colors.css";
 import "../src/styles/Dashboard.css";
+import "../src/styles/Menu-sidebar.css";
+import "../src/styles/Right-sidebar.css";
 
-const Dashboard: React.FC = () => {
+type RecentlyUsedItem = {
+  title: string;
+  date: string;
+  memberCount?: number;
+};
+
+const recentlyUsedData: RecentlyUsedItem[] = [
+  { title: "App Project", date: "Created: 20.02.2020", memberCount: 2 },
+  { title: "Project: fitbit", date: "Created: 28.02.2020", memberCount: 2 },
+  { title: "Client Documents", date: "Created: 4.03.2020", memberCount: 4 },
+];
+
+type RecentUploads = {
+  id: number;
+  name: string;
+  members: string;
+  modified: string;
+  color: string;
+};
+
+const recentFilesData: RecentUploads[] = [
+  {
+    id: 1,
+    name: "Travel Landing Page",
+    members: "5 members",
+    modified: "Mar 8, 2020",
+    color: "var(--orange)",
+  },
+  {
+    id: 2,
+    name: "True Photos",
+    members: "12 members",
+    modified: "Mar 8, 2020",
+    color: "var(--green)",
+  },
+  {
+    id: 3,
+    name: "Dashboard Structure",
+    members: "10 members",
+    modified: "Mar 9, 2020",
+    color: "var(--red)",
+  },
+  {
+    id: 4,
+    name: "Character Illustration",
+    members: "3 members",
+    modified: "Mar 10, 2020",
+    color: "var(--orange)",
+  },
+];
+
+type SharedFileItem = {
+  title: string;
+  date: string;
+  memberColor: SharedFileMemberColor[];
+};
+
+const sharedFilesData: SharedFileItem[] = [
+  {
+    title: "Landing Page",
+    date: "Created: 20.02.2020",
+    memberColor: ["var(--green)", "var(--red)"],
+  },
+  {
+    title: "Illustration Pack",
+    date: "Created: 20.02.2020",
+    memberColor: ["var(--green)", "var(--red)", "var(--orange)"],
+  },
+  {
+    title: "CV Design",
+    date: "Created: 20.02.2020",
+    memberColor: ["var(--green)", "var(--orange)"],
+  },
+];
+
+const Dashboard = () => {
   return (
     <div className="dashboard-container">
-      <aside className="sidebar">
-        <div className="logo gradient"></div>
-        <nav className="sidebar-menu ">
-          <div className="menu-item active">
-            <span className="rectangle1" />
-            Home
-          </div>
-          <div className="menu-item">
-            <span className="rectangle1" />
-            My Files
-          </div>
-          <div className="menu-item">
-            <span className="rectangle1" />
-            Recent Files
-          </div>
-          <div className="menu-item">
-            <span className="rectangle1" />
-            Shared Filed
-          </div>
-          <div className="menu-item">
-            <span className="rectangle1" />
-            File Request
-          </div>
-          <div className="menu-item">
-            <span className="rectangle1" />
-            Trash
-          </div>
-        </nav>
-        <div className="create-new">
-          <ul className="custom-list extra">
-            <li>Upload files</li>
-            <li>Upload folder</li>
-            <li>New folder</li>
-            <li>More</li>
-          </ul>
-          <button>
-            Create New <span className="plus">+</span>
-          </button>
-        </div>
-      </aside>
-
+      <Menu />
       <main className="main-content">
         <input type="text" name="search" id="search" placeholder="Search" />
-        <section className="recently-used">
-          <h2>Recently Used</h2>
-          <div className="cards">
-            <div className="card">
-              <div className="card-icon orange"></div>
-              <div className="card-title">App Project</div>
-              <div className="card-date">Created: 20.02.2020</div>
-            </div>
-            <div className="card">
-              <div className="card-icon orange"></div>
-              <div className="card-title">Project: fitbit</div>
-              <div className="card-date">Created: 28.02.2020</div>
-            </div>
-            <div className="card">
-              <div className="card-icon orange"></div>
-              <div className="card-title">Client Documents</div>
-              <div className="card-date">Created: 4.03.2020</div>
-            </div>
-          </div>
-        </section>
-
-        <section className="recent-files">
-          <h2>Recent Files</h2>
-          <table>
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Members</th>
-                <th>Last Modified</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <span className="dot orange"></span>Travel Landing Page
-                </td>
-                <td>5 members</td>
-                <td>Mar 8, 2020</td>
-              </tr>
-              <tr>
-                <td>
-                  <span className="dot green"></span>True Photos
-                </td>
-                <td>12 members</td>
-                <td>Mar 8, 2020</td>
-              </tr>
-              <tr>
-                <td>
-                  <span className="dot red"></span>Dashboard Structure
-                </td>
-                <td>10 members</td>
-                <td>Mar 9, 2020</td>
-              </tr>
-              <tr>
-                <td>
-                  <span className="dot orange"></span>Character Illustration
-                </td>
-                <td>3 members</td>
-                <td>Mar 10, 2020</td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
-
-        <section className="shared-files">
-          <h2>Share with me</h2>
-          <div className="cards">
-            <div className="card">
-              <div className="card-icon orange"></div>
-              <div className="card-title">Landing Page</div>
-              <div className="card-date">Created: 20.02.2020</div>
-            </div>
-            <div className="card">
-              <div className="card-icon orange"></div>
-              <div className="card-title">Illustration Pack</div>
-              <div className="card-date">Created: 20.02.2020</div>
-            </div>
-            <div className="card">
-              <div className="card-icon orange"></div>
-              <div className="card-title">CV Design</div>
-              <div className="card-date">Created: 20.02.2020</div>
-            </div>
-          </div>
-        </section>
+        <RecentlyUsed recentlyUsedData={recentlyUsedData} />
+        <RecentFiles recentUploadsData={recentFilesData} />
+        <SharedFiles sharedFilesData={sharedFilesData} />
       </main>
-
-      <aside className="right-sidebar">
-        <div className="user">
-          <div>Name</div>
-        </div>
-        <div className="storage">
-          <h3>Storage</h3>
-          <div className="circle">85%</div>
-          <p>420.2 GB of 500 GB used</p>
-          <div className="storage-breakdown custom-list">
-            <div>
-              <span className="dot orange"></span> Documents - 200 GB
-            </div>
-            <div>
-              <span className="dot blue"></span> Documents - 125 GB
-            </div>
-            <div>
-              <span className="dot green"></span> Documents - 75 GB
-            </div>
-            <div>
-              <span className="dot gray"></span> Documents - 50 GB
-            </div>
-          </div>
-        </div>
-        <div className="upgrade-box">
-          <div className="upgrade-box gradient"></div>
-          <p>
-            Buy more space now!
-            <br />
-            <strong>Upgrade to cloud premium</strong>
-          </p>
-          <button>Upgrade Account!</button>
-        </div>
-      </aside>
+      <Sidebar />
     </div>
   );
 };
