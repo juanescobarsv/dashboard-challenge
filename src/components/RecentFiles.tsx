@@ -10,7 +10,7 @@ interface RecentUploadsProps {
   recentUploadsData: RecentUploads[];
 }
 
-const RecentFiles: React.FC<RecentUploadsProps> = ({ recentUploadsData }) => {
+const RecentFiles = ({ recentUploadsData }: RecentUploadsProps) => {
   return (
     <section className="recent-files">
       <div className="inline-header">
@@ -43,7 +43,6 @@ const RecentFiles: React.FC<RecentUploadsProps> = ({ recentUploadsData }) => {
               viewBox="0 0 24 24"
               stroke-width="1.5"
               stroke="currentColor"
-              // class="size-6"
             >
               <path
                 stroke-linecap="round"

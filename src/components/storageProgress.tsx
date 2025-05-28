@@ -24,7 +24,7 @@ const storageData: StorageData = {
   ],
 };
 
-const StorageProgress: React.FC = () => {
+const StorageProgress = () => {
   return (
     <div className="storage-container">
       <h2>Storage</h2>

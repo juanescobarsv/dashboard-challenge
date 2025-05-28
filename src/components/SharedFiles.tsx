@@ -1,4 +1,3 @@
-import React from "react";
 import CircleIcon from "./circle";
 
 interface SharedFileItem {
@@ -17,7 +16,7 @@ interface SharedFilesProps {
   sharedFilesData: SharedFileItem[];
 }
 
-const SharedFiles: React.FC<SharedFilesProps> = ({ sharedFilesData }) => {
+const SharedFiles = ({ sharedFilesData }: SharedFilesProps) => {
   return (
     <section className="shared-files">
       <div className="inline-header">

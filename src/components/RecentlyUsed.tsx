@@ -1,4 +1,3 @@
-import React from "react";
 import CircleIcon from "./circle";
 
 type RecentlyUsedItem = {
@@ -11,7 +10,7 @@ interface RecentlyUsedProps {
   recentlyUsedData: RecentlyUsedItem[];
 }
 
-const RecentlyUsed: React.FC<RecentlyUsedProps> = ({ recentlyUsedData }) => {
+const RecentlyUsed = ({ recentlyUsedData }: RecentlyUsedProps) => {
   return (
     <section className="recently-used">
       <div className="inline-header">

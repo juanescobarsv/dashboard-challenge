@@ -1,24 +1,24 @@
 interface CircleIconProps {
-  radius?: number;
-  strokeColor?: string;
-  fillColor?: string;
-  textColor?: string;
-  fontSize?: number;
-  number?: number | string;
   className?: string;
   style?: React.CSSProperties;
+  number?: number | string;
+  fillColor?: string;
+  fontSize?: number;
+  radius?: number;
+  strokeColor?: string;
+  textColor?: string;
 }
 
-const CircleIcon: React.FC<CircleIconProps> = ({
-  radius = 10,
-  strokeColor = "currentColor",
-  fillColor = "var(--white)",
-  textColor = "currentColor",
-  fontSize = 12,
-  number,
+const CircleIcon = ({
   className,
   style,
-}) => {
+  number,
+  fillColor = "var(--white)",
+  fontSize = 12,
+  radius = 10,
+  strokeColor = "currentColor",
+  textColor = "currentColor",
+}: CircleIconProps) => {
   const diameter = radius * 2;
 
   let displayNum: string;

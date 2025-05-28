@@ -1,89 +1,90 @@
-import React from "react";
-import "../src/styles/Dashboard.css";
-import "../src/styles/Colors.css";
 import Menu from "./components/Menu";
 import RecentlyUsed from "./components/RecentlyUsed";
 import RecentFiles from "./components/RecentFiles";
 import SharedFiles from "./components/SharedFiles";
 import type { SharedFileMemberColor } from "./components/SharedFiles"; // Import the type
 import Sidebar from "./components/Sidebar";
+import "../src/styles/Colors.css";
+import "../src/styles/Dashboard.css";
+import "../src/styles/Menu-sidebar.css";
+import "../src/styles/Right-sidebar.css";
 
-const Dashboard: React.FC = () => {
-  type RecentlyUsedItem = {
-    title: string;
-    date: string;
-    memberCount?: number;
-  };
+type RecentlyUsedItem = {
+  title: string;
+  date: string;
+  memberCount?: number;
+};
 
-  const recentlyUsedData: RecentlyUsedItem[] = [
-    { title: "App Project", date: "Created: 20.02.2020", memberCount: 2 },
-    { title: "Project: fitbit", date: "Created: 28.02.2020", memberCount: 2 },
-    { title: "Client Documents", date: "Created: 4.03.2020", memberCount: 4 },
-  ];
+const recentlyUsedData: RecentlyUsedItem[] = [
+  { title: "App Project", date: "Created: 20.02.2020", memberCount: 2 },
+  { title: "Project: fitbit", date: "Created: 28.02.2020", memberCount: 2 },
+  { title: "Client Documents", date: "Created: 4.03.2020", memberCount: 4 },
+];
 
-  type RecentUploads = {
-    id: number;
-    name: string;
-    members: string;
-    modified: string;
-    color: string;
-  };
+type RecentUploads = {
+  id: number;
+  name: string;
+  members: string;
+  modified: string;
+  color: string;
+};
 
-  const recentFilesData: RecentUploads[] = [
-    {
-      id: 1,
-      name: "Travel Landing Page",
-      members: "5 members",
-      modified: "Mar 8, 2020",
-      color: "var(--orange)",
-    },
-    {
-      id: 2,
-      name: "True Photos",
-      members: "12 members",
-      modified: "Mar 8, 2020",
-      color: "var(--green)",
-    },
-    {
-      id: 3,
-      name: "Dashboard Structure",
-      members: "10 members",
-      modified: "Mar 9, 2020",
-      color: "var(--red)",
-    },
-    {
-      id: 4,
-      name: "Character Illustration",
-      members: "3 members",
-      modified: "Mar 10, 2020",
-      color: "var(--orange)",
-    },
-  ];
+const recentFilesData: RecentUploads[] = [
+  {
+    id: 1,
+    name: "Travel Landing Page",
+    members: "5 members",
+    modified: "Mar 8, 2020",
+    color: "var(--orange)",
+  },
+  {
+    id: 2,
+    name: "True Photos",
+    members: "12 members",
+    modified: "Mar 8, 2020",
+    color: "var(--green)",
+  },
+  {
+    id: 3,
+    name: "Dashboard Structure",
+    members: "10 members",
+    modified: "Mar 9, 2020",
+    color: "var(--red)",
+  },
+  {
+    id: 4,
+    name: "Character Illustration",
+    members: "3 members",
+    modified: "Mar 10, 2020",
+    color: "var(--orange)",
+  },
+];
 
-  type SharedFileItem = {
-    title: string;
-    date: string;
-    memberColor: SharedFileMemberColor[];
-  };
+type SharedFileItem = {
+  title: string;
+  date: string;
+  memberColor: SharedFileMemberColor[];
+};
 
-  const sharedFilesData: SharedFileItem[] = [
-    {
-      title: "Landing Page",
-      date: "Created: 20.02.2020",
-      memberColor: ["var(--green)", "var(--red)"],
-    },
-    {
-      title: "Illustration Pack",
-      date: "Created: 20.02.2020",
-      memberColor: ["var(--green)", "var(--red)", "var(--orange)"],
-    },
-    {
-      title: "CV Design",
-      date: "Created: 20.02.2020",
-      memberColor: ["var(--green)", "var(--orange)"],
-    },
-  ];
+const sharedFilesData: SharedFileItem[] = [
+  {
+    title: "Landing Page",
+    date: "Created: 20.02.2020",
+    memberColor: ["var(--green)", "var(--red)"],
+  },
+  {
+    title: "Illustration Pack",
+    date: "Created: 20.02.2020",
+    memberColor: ["var(--green)", "var(--red)", "var(--orange)"],
+  },
+  {
+    title: "CV Design",
+    date: "Created: 20.02.2020",
+    memberColor: ["var(--green)", "var(--orange)"],
+  },
+];
 
+const Dashboard = () => {
   return (
     <div className="dashboard-container">
       <Menu />
